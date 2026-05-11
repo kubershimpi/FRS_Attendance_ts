@@ -2,11 +2,6 @@
 
 Next-gen automated attendance interface leveraging Computer Vision and TypeScript to provide real-time biometric verification and hands-free check-ins.
 
-You should paste the **full professional README content** we just finalized. This will transform your repository from a blank page into a high-end technical showcase.
-
-### 📋 Copy and Paste this Content:
-
-````markdown
 # FRS Attendance System 🚀
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
@@ -74,20 +69,6 @@ npx expo start -c
 
 **Kuber Shimpi** _Engineering Intern @ MindBox Analytics_ B.E. Artificial Intelligence & Machine Learning | SDMCET Dharwad
 
----
-
 _Developed for MindBox Analytics FRS Ecosystem Demonstration._
 
-```
 
----
-
-### 🛠️ What to do next:
-1.  **Paste** the code above into the editor in your screenshot.
-2.  Click the green **"Commit changes..."** button at the top right.
-3.  In the popup, write a message like: `docs: update professional README with technical specs`.
-4.  Click **"Commit changes"** again.
-
-**Once you do this, your GitHub home page will look incredibly professional. After that, we just need to push your actual code folders (src, assets, etc.) using the terminal!**
-
-```
