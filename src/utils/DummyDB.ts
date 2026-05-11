@@ -1,13 +1,17 @@
 import moment from "moment";
+import { UserProfile, AttendanceLog, HomeStatusResponse } from "../types/index";
 
 // 1. THE STORAGE
-export let UsersDatabase = {
+export let UsersDatabase: Record<
+  string,
+  { password: string; profile: UserProfile }
+> = {
   "ramesh@mindbox.com": {
     password: "password123",
     profile: {
       id: "MBX9012",
       name: "Ramesh Kumar",
-      email: "ramesh.kumar@mindbox.com",
+      email: "ramesh@mindbox.com",
       phone: "+91 98765 43210",
       department: "IT Department",
       designation: "Software Engineer",
@@ -16,7 +20,7 @@ export let UsersDatabase = {
   },
 };
 
-const getDynamicLogs = (userId) => {
+const getDynamicLogs = (userId: string): AttendanceLog[] => {
   const today = moment().format("YYYY-MM-DD");
   const yesterday = moment().subtract(1, "days").format("YYYY-MM-DD");
 
@@ -40,7 +44,7 @@ const getDynamicLogs = (userId) => {
 
 // 2. THE API LAYER
 export const mockApi = {
-  getHomeStatus: (userId) => {
+  getHomeStatus: (userId: string): Promise<HomeStatusResponse> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const cleanId = userId.toLowerCase().trim();
@@ -54,7 +58,9 @@ export const mockApi = {
       }, 400);
     });
   },
-  getAttendanceHistory: (userId) => {
+  getAttendanceHistory: (
+    userId: string,
+  ): Promise<{ success: boolean; logs: AttendanceLog[] }> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         const cleanId = userId.toLowerCase().trim();
@@ -68,7 +74,10 @@ export const mockApi = {
 };
 
 // 3. THE UPDATE FUNCTION (Named Export)
-export const updatePasswordInDB = (userId, newPassword) => {
+export const updatePasswordInDB = (
+  userId: string,
+  newPassword: string,
+): boolean => {
   const cleanId = userId.toLowerCase().trim();
   if (UsersDatabase[cleanId]) {
     UsersDatabase[cleanId].password = newPassword;
